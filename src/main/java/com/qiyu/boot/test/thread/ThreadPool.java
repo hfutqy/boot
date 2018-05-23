@@ -42,6 +42,7 @@ public class ThreadPool {
 
         Runnable task;
 
+        @Override
         public void run() {
             System.out.println("启动： " + this.getName());
             while (true) {

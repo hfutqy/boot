@@ -9,7 +9,15 @@ public class TestThread {
     public static void main(String[] args) {
         ThreadPool pool = new ThreadPool();
 
-        for (int i = 0; i < 5; i++) {
+        //这段是为了给线程池足够的初始化时间
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < 100; i++) {
             Runnable task = new Runnable() {
                 @Override
                 public void run() {
@@ -22,14 +30,6 @@ public class TestThread {
             };
 
             pool.add(task);
-
-            //这段是为了给线程池足够的初始化时间
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                // TODO Auto-generated catch block
-//                e.printStackTrace();
-//            }
 
         }
 
