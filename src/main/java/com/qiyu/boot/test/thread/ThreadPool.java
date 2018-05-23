@@ -8,24 +8,47 @@ import java.util.LinkedList;
  */
 public class ThreadPool {
 
-    //线程池大小
+    // 线程池大小
     int threadPoolSize;
 
-    //任务队列容器
+    // 任务队列容器
     LinkedList<Runnable> tasks = new LinkedList<>();
 
-    //试图消费任务的线程
-    public ThreadPool(){
+    // 试图消费任务的线程
+    public ThreadPool() {
         threadPoolSize = 10;
 
         //启动threadPoolSize个消费者线程
         synchronized (tasks) {
-            for(int i =0; i < threadPoolSize; i++) {
-                
+            for (int i = 0; i < threadPoolSize; i++) {
+
             }
-
-
         }
+
+    }
+
+
+
+
+    class TaskConsumeThread extends Thread {
+        /**
+         * 消费者线程
+         * @param name the name of the new thread
+         */
+        public TaskConsumeThread(String name){
+            super(name);
+        }
+
+        Runnable task;
+
+        @Override
+        public void run(){
+            System.out.print("启动: " + this.getName());
+
+            
+        }
+
+
 
     }
 
