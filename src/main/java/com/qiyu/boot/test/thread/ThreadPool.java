@@ -20,7 +20,9 @@ public class ThreadPool {
 
         //启动threadPoolSize个消费者线程
         synchronized (tasks) {
-            
+            for(int i =0; i < threadPoolSize; i++) {
+                
+            }
 
 
         }
