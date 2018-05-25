@@ -49,6 +49,7 @@ public class ThreadPool {
                 synchronized (tasks) {
                     while (tasks.isEmpty()) {
                         try {
+                            //任务队列是空的就让线程wait(),一直处于等待的状态
                             tasks.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
