@@ -1,4 +1,4 @@
-package com.qiyu.boot.test.thread;
+package com.qiyu.boot.thread;
 
 /**
  * 启用线程池 测试类

@@ -1,4 +1,4 @@
-package com.qiyu.boot.test.thread;
+package com.qiyu.boot.thread;
 
 import java.util.LinkedList;
 
