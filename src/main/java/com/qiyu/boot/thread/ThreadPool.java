@@ -15,7 +15,6 @@ public class ThreadPool {
     LinkedList<Runnable> tasks = new LinkedList<Runnable>();
 
     // 试图消费任务的线程
-
     public ThreadPool() {
         threadPoolSize = 10;
 
