@@ -16,5 +16,15 @@ public class HelloController {
         return "Hello Spring Boot!";
     }
 
+    @RequestMapping("/query")
+    public String query() {
+        return "Hello Spring Boot!";
+    }
+
+    @RequestMapping("/select")
+    public String select() {
+        return "Hello Spring Boot!";
+    }
+
 
 }
