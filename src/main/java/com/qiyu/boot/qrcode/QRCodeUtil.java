@@ -11,7 +11,7 @@ public class QRCodeUtil  {
 
     public static void main(String[] args) {
         File file = new File("xxxx");
-        QrcodeUtils.createQrcode("String",10,file);
+        QrcodeUtils.createQrcode("Demo",10,file);
 
 
     }

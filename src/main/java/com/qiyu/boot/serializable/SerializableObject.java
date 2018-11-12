@@ -1,6 +1,7 @@
 package com.qiyu.boot.serializable;
 
 import java.io.*;
+import java.util.LinkedList;
 
 /**
  * @author qiyu
@@ -43,7 +44,7 @@ public class SerializableObject implements Serializable {
 //        char[] cs = new char[length];
 //        for (int i = 0; i < length; i++)
 //            cs[i] = s.readChar();
-//        str1 = new String(cs, 0, length);
+//        str1 = new Demo(cs, 0, length);
 //    }
 
     public static void main(String[] args) throws Exception {
@@ -52,7 +53,7 @@ public class SerializableObject implements Serializable {
         ObjectOutputStream oos = new ObjectOutputStream(os);
         oos.writeObject(new SerializableObject("str011", "str1"));
         oos.close();
-
+        LinkedList<Integer> a = new LinkedList<>();
         InputStream is = new FileInputStream(file);
         ObjectInputStream ois = new ObjectInputStream(is);
         SerializableObject so = (SerializableObject) ois.readObject();
