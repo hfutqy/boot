@@ -3,6 +3,7 @@ package com.qiyu.boot.controller;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.downloader.HttpClientGenerator;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 /**
@@ -19,11 +20,7 @@ public class GitHubRepoPageProcessor implements PageProcessor {
         page.addTargetRequests(page.getHtml().links().regex("(https://github\\\\.com/\\\\w+/\\\\w+)").all());
         page.putField("author", page.getHtml().regex("<title>(.*)</title>").toString());
         page.putField("contributions", page.getHtml().xpath("//h2[@class='f4 text-normal mb-2']/text()").toString());
-//        if (page.getResultItems().get("name") == null) {
-//            //skip this page
-//            page.setSkip(true);
-//        }
-//        page.putField("readme", page.getHtml().xpath("//div[@id='readme']/tidyText()"));
+        page.addTargetRequests(page.getHtml().links().regex("(https://github\\.com/[\\w\\-]+/[\\w\\-]+)").all());
     }
 
     @Override
@@ -32,6 +29,8 @@ public class GitHubRepoPageProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
+        System.out.println(HttpClientGenerator.class.getClassLoader());
+        System.out.println("**************************");
         Spider.create(new GitHubRepoPageProcessor()).addUrl("https://github.com/hfutqy").thread(1).run();
     }
 }
