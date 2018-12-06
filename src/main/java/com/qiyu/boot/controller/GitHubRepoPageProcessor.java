@@ -12,6 +12,9 @@ import us.codecraft.webmagic.processor.PageProcessor;
  */
 public class GitHubRepoPageProcessor implements PageProcessor {
 
+    private int a ;
+
+
     private Site site = Site.me().setRetrySleepTime(100).setRetryTimes(3);
 
 
@@ -32,5 +35,7 @@ public class GitHubRepoPageProcessor implements PageProcessor {
         System.out.println(HttpClientGenerator.class.getClassLoader());
         System.out.println("**************************");
         Spider.create(new GitHubRepoPageProcessor()).addUrl("https://github.com/hfutqy").thread(1).run();
+
+
     }
 }
